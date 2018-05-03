@@ -30,6 +30,11 @@ class LoginViewController: UIViewController {
     @IBOutlet weak var usernameTextField: UITextField!
     @IBOutlet weak var passwordTextField: UITextField!
     @IBOutlet weak var createInfoLabel: UILabel!
+    @IBOutlet weak var touchIDButton: UIButton!
+    
+    //Biometric Authentication
+    let touchMe = BiometricIDAuth()
+
     
     
     // View Life Cycle
@@ -51,12 +56,31 @@ class LoginViewController: UIViewController {
         if let storedUsername = UserDefaults.standard.value(forKey: "username") as? String {
             usernameTextField.text = storedUsername
         }
+        touchIDButton.isHidden = !touchMe.canEvaluatePolicy()
+        
+        //Picking between touch and face id
+        
+        switch touchMe.biometricType() {
+        case .faceID:
+            touchIDButton.setImage(UIImage(named: "FaceIcon"),  for: .normal)
+        default:
+            touchIDButton.setImage(UIImage(named: "Touch-icon-lg"),  for: .normal)
+        }
+    }
+    
+    override func viewDidAppear(_ animated: Bool) {
+        super.viewDidAppear(animated)
+        let touchBool = touchMe.canEvaluatePolicy()
+        if touchBool {
+            touchIDLoginAction()
+        }
     }
     
     override var preferredStatusBarStyle: UIStatusBarStyle {
         return .lightContent
     }
 }
+
 
 // MARK: - IBActions
 extension LoginViewController {
@@ -107,6 +131,26 @@ extension LoginViewController {
             }
         }
     }
+    
+    @IBAction func touchIDLoginAction() {
+        touchMe.authenticateUser() { [weak self] message in
+            if let message = message {
+                // if the completion is not nil show an alert
+                let alertView = UIAlertController(title: "Error",
+                                                  message: message,
+                                                  preferredStyle: .alert)
+                let okAction = UIAlertAction(title: "Darn!", style: .default)
+                alertView.addAction(okAction)
+                self?.present(alertView, animated: true)
+            } else {
+                self?.performSegue(withIdentifier: "dismissLogin", sender: self)
+            }
+        }
+        
+    }
+    
+    
+    
     
     func checkLogin(username: String, password: String) -> Bool {
         guard username == UserDefaults.standard.value(forKey: "username") as? String else {

@@ -18,6 +18,7 @@
 		2765ABBF206216C10001C754 /* FlashBackTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2765ABBE206216C10001C754 /* FlashBackTests.swift */; };
 		2765ABCA206216C10001C754 /* FlashBackUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2765ABC9206216C10001C754 /* FlashBackUITests.swift */; };
 		2765ABD8206A02D80001C754 /* RecordDisplayTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2765ABD7206A02D70001C754 /* RecordDisplayTableViewController.swift */; };
+		27FEC63D209BB5A00047A9C5 /* TouchIDAuthentication.swift in Sources */ = {isa = PBXBuildFile; fileRef = 27FEC63C209BB5A00047A9C5 /* TouchIDAuthentication.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -55,6 +56,7 @@
 		2765ABC9206216C10001C754 /* FlashBackUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FlashBackUITests.swift; sourceTree = "<group>"; };
 		2765ABCB206216C10001C754 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		2765ABD7206A02D70001C754 /* RecordDisplayTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RecordDisplayTableViewController.swift; sourceTree = "<group>"; };
+		27FEC63C209BB5A00047A9C5 /* TouchIDAuthentication.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TouchIDAuthentication.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -87,6 +89,7 @@
 			children = (
 				271A8479209A96C800E63798 /* LoginViewController.swift */,
 				271A847B209AA3DF00E63798 /* KeychainPasswordItem.swift */,
+				27FEC63C209BB5A00047A9C5 /* TouchIDAuthentication.swift */,
 			);
 			path = Login;
 			sourceTree = "<group>";
@@ -285,6 +288,7 @@
 				271A847A209A96C800E63798 /* LoginViewController.swift in Sources */,
 				2765ABAF206216C10001C754 /* FlashBack.xcdatamodeld in Sources */,
 				271A847C209AA3E000E63798 /* KeychainPasswordItem.swift in Sources */,
+				27FEC63D209BB5A00047A9C5 /* TouchIDAuthentication.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
