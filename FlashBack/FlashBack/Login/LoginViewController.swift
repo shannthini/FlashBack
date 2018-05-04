@@ -62,7 +62,7 @@ class LoginViewController: UIViewController {
         
         switch touchMe.biometricType() {
         case .faceID:
-            touchIDButton.setImage(UIImage(named: "FaceIcon"),  for: .normal)
+            touchIDButton.setImage(UIImage(named: "faceId_logo-1"),  for: .normal)
         default:
             touchIDButton.setImage(UIImage(named: "Touch-icon-lg"),  for: .normal)
         }
